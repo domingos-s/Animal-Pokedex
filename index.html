@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Animal Dex</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🧭</div>
+      <div>
+        <div class="title">Animal Dex</div>
+        <div class="subtitle">Your real-world Pokédex</div>
+      </div>
+    </div>
+
+    <button id="installBtn" class="btn ghost" hidden>Install</button>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Capture</h2>
+      <form id="captureForm" class="form">
+        <label class="field">
+          <span>Photo</span>
+          <input id="photoInput" type="file" accept="image/*" capture="environment" required />
+          <small>Tip: On mobile, this opens the camera.</small>
+        </label>
+
+        <div class="grid2">
+          <label class="field">
+            <span>Animal name</span>
+            <input id="nameInput" type="text" placeholder="e.g., Coyote" required />
+          </label>
+
+          <label class="field">
+            <span>Type</span>
+            <select id="typeInput">
+              <option>Mammal</option>
+              <option>Bird</option>
+              <option>Reptile</option>
+              <option>Amphibian</option>
+              <option>Fish</option>
+              <option>Insect</option>
+              <option>Arachnid</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Notes (optional)</span>
+          <input id="notesInput" type="text" placeholder="Behavior, habitat, where you saw it..." />
+        </label>
+
+        <div class="actions">
+          <button class="btn" type="submit">Save to Dex</button>
+          <button class="btn ghost" type="button" id="clearBtn">Clear</button>
+        </div>
+
+        <div id="preview" class="preview" hidden>
+          <img id="previewImg" alt="Preview" />
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>My Dex</h2>
+        <div class="row right">
+          <input id="searchInput" class="search" type="search" placeholder="Search..." />
+          <select id="filterType" class="search">
+            <option value="">All types</option>
+            <option>Mammal</option><option>Bird</option><option>Reptile</option>
+            <option>Amphibian</option><option>Fish</option><option>Insect</option>
+            <option>Arachnid</option><option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="stats" class="stats"></div>
+
+      <div id="dexList" class="dex"></div>
+      <div id="emptyState" class="empty" hidden>
+        No entries yet. Go capture your first animal.
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Local-first. Stored on this device.</span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
